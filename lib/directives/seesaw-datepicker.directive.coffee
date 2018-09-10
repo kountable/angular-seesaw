@@ -26,8 +26,6 @@ do ->
         ngModel.$formatters.push (modelValue)->
           return undefined if !modelValue
           dt = new Date(modelValue)
-          dt.setMinutes dt.getMinutes() + dt.getTimezoneOffset()
-          dt.setMinutes ((dt.getMinutes() + (dt.getHours() * 60)) * -1)
           ngModel.$setViewValue(dt)
           dt
 
